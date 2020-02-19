@@ -27,23 +27,26 @@ def main():
     height = 400
     width = 400
     model = Elipse()
-    draw_img(model, "model")
-    print(model.nfaces())
     while True:
-        model.rotate_X(-0.001)
-        model.rotate_Y(-0.001)
-        model.rotate_Z(-0.001)
-        model.sort()
         draw_img(model, "model", wait_key=1)
+        model.rotate_X(-0.01)
+        model.rotate_Y(-0.01)
+        model.rotate_Z(-0.01)
+        model.sort()
 
-    # img = np.zeros((400, 400, 3), dtype=np.uint8)
-    # print(model.vert(0))
-    # print(model.vert(model.nverts()-1))
-    # for vect in model.vectors():
-    #     x = int((vect[0]+1) * width / 2 ) - 1
-    #     y = int((vect[1]+1) * height / 2 ) - 1
-    #     img[x, y] = (230,55,140)
-    # cv2.imshow("img", img)
+
+    # while True:
+    #
+    #     model.rotate_X(-0.001)
+    #     model.rotate_Y(-0.001)
+    #     model.rotate_Z(-0.001)
+    #     img = np.zeros((400, 400, 3), dtype=np.uint8)
+    #     for vect in model.vectors():
+    #         x = int((vect[0]+1) * width / 2 ) - 1
+    #         y = int((vect[1]+1) * height / 2 ) - 1
+    #         img[x, y] = (230,55,140)
+    #     cv2.imshow("img", img)
+    #     cv2.waitKey(1)
 
 
 main()

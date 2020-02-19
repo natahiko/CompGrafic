@@ -48,14 +48,14 @@ class Elipse():
             self.__vector[id] = rx @ y
 
 
-def getElipseCord(a, b, c, step=pi / 20):
+def getElipseCord(a, b, c, step=pi / 26):
     faces = []
     vectors = []
 
     total_t = 0
     total_q = 0
     t = 0
-    while t < (2 * pi):
+    while t < 2*pi:
         q = 0
         total_q = 0
         while q <= pi:
@@ -67,10 +67,17 @@ def getElipseCord(a, b, c, step=pi / 20):
         t += step
         total_t += 1
 
-    for x in range(total_q):
-        for y in range(total_t):
-            a = [y + (x * total_q), y + 1 + (x * total_q), y + 1 + ((x + 1) * total_q)]
-            b = [y + (x * total_q), y + 1 + ((x + 1) * total_q), y + ((x + 1) * total_q)]
+    for i in range(total_t-1):
+        for j in range(total_q-1):
+            a = [i*total_q + j, (i+1)*total_q + j, i*total_q + j+1]
+            b = [(i+1)*total_q + j, i*total_q + j+1, (i+1)*total_q + j+1]
+            faces.append(a)
+            faces.append(b)
+
+    i = total_t-1
+    for j in range(total_q-1):
+            a = [i*total_q + j, j, i*total_q + j+1]
+            b = [j, i*total_q + j+1,j+1]
             faces.append(a)
             faces.append(b)
 
