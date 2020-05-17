@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import random
 
-light_vector = np.array([1, -1, 1])
+light_vector = np.array([-1, -1, -1])
 see_vect = [1, 0, 0]
 
 

@@ -6,7 +6,10 @@ from utils import Elipse, draw_img, draw_img_points, Model3D
 
 
 def main():
-    model = Model3D(r'D:\graphExample\iafrican_head.obj')
+# for lab with elipse
+# model = Elipse()
+# for lab 7 use model 3d
+    model = Model3D(r'D:/african_head.obj')
     while True:
         draw_img(model, "model", wait_key=1)
         # draw_img_points(model)
